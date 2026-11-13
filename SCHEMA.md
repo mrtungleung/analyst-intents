@@ -63,8 +63,11 @@ unless compiled into one of the forms above.
   `targets_underlying[exit_target_index]` (checked on latest quotes /
   completed 5m bars at each check), or forced flat at the 15:45 ET check
   for same-day expiries.
-- Checks run every ~15 minutes during US hours; **fills are priced at
-  check-time quotes**, not at the exact trigger tick. This is a
-  scoreboard, not an execution simulator.
+- Cadence mirrors the production rhythm: candlesticks are pulled every
+  1 minute (completed 1m bars drive stop/target exit checks); the
+  dealer-GEX heatmap snapshot is pulled every 5 minutes and entries are
+  judged on completed 5m bars. **Fills are priced at live bid/ask at
+  the booking minute** (Longbridge depth), not at the exact trigger
+  tick. This is a scoreboard, not an execution simulator.
 - This book is the analyst's own shadow ledger. It is separate from the
   server engine's ledgers and never places real or paper orders.

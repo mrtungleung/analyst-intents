@@ -26,9 +26,10 @@ target hit first, what were MFE / MAE.
 ## Shadow book (design B, since 2026-11-13)
 
 Trade intents are shadow-executed on the analyst side, separate from
-the server engine: triggers are checked every ~15 min during US hours
-against Longbridge quotes, fills are booked at check-time bid/ask with
-the v3 accounting conventions, and daily P&L lands in `shadow/`.
+the server engine: K-lines are pulled every minute (exits judged on
+1m bars), the GEX heatmap snapshot every 5 minutes (entries judged on
+completed 5m bars), fills are booked at live bid/ask with the v3
+accounting conventions, and daily P&L lands in `shadow/`.
 
 ## Record schema
 
