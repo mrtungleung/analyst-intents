@@ -18,6 +18,17 @@ target hit first, what were MFE / MAE.
 - `intents/YYYY-MM-DD.jsonl` — one file per ET session date, one JSON
   object per line, **append-only** (never edit or delete a record;
   corrections are new records that reference the original `record_id`).
+- `compiled/YYYY-MM-DD.jsonl` — machine-readable compilations of trade
+  intents (schema in `SCHEMA.md`); the analyst shadow book runs these.
+- `shadow/YYYY-MM-DD.json` — daily shadow-book results (fills and P&L),
+  written by the post-close review.
+
+## Shadow book (design B, since 2026-11-13)
+
+Trade intents are shadow-executed on the analyst side, separate from
+the server engine: triggers are checked every ~15 min during US hours
+against Longbridge quotes, fills are booked at check-time bid/ask with
+the v3 accounting conventions, and daily P&L lands in `shadow/`.
 
 ## Record schema
 
