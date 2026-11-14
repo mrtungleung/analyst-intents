@@ -1,0 +1,59 @@
+{
+  "session_date_et": "2026-11-13",
+  "book": "analyst-shadow",
+  "note": "Shadow book opened mid-session at 2026-11-13T17:40:00Z; sample incomplete for this session.",
+  "intents": [
+    {
+      "record_id": "2026-11-13-001",
+      "ticker": "SPX",
+      "stance": "no_trade",
+      "booked": false,
+      "price_scoring": {
+        "short_conditional": {"trigger": "break 7499 below flip", "triggered_after_issue": false, "note": "Post-issue (after 11:58 ET) session low stayed above 7511; the 7499.4 low printed at 10:20 ET, before issue."},
+        "long_conditional": {"trigger": "hold above 7545, retest holds, target 7570", "triggered_after_issue": true, "note": "Stood above 7545 from about 13:40 ET; session high after trigger 7568.33 at 15:50 ET, target 7570 not reached; close 7561.67."}
+      }
+    },
+    {
+      "record_id": "2026-11-13-002",
+      "ticker": "AMD",
+      "stance": "conditional_short",
+      "result": "closed_stop",
+      "entered_at_utc": "2026-11-13T17:44:35Z",
+      "entry_spot": 524.17,
+      "instrument": "put_spread 525P/520P 2026-11-13",
+      "entry_net_debit": 2.51,
+      "exited_at_utc": "2026-11-13T19:06:22Z",
+      "exit_reason": "stop",
+      "exit_net": 0.73,
+      "fees_total_usd": 2.6,
+      "pnl_usd": -180.6,
+      "return_on_debit_pct": -71.95
+    },
+    {
+      "record_id": "2026-11-13-003",
+      "ticker": "AMD",
+      "stance": "conditional_short",
+      "result": "expired_untriggered",
+      "note": "Session low 520.01 never broke the 520 break level."
+    }
+  ],
+  "shadow_cumulative": {
+    "closed_positions": 1,
+    "wins": 0,
+    "losses": 1,
+    "win_rate_pct": 0.0,
+    "total_pnl_usd": -180.6,
+    "open_positions": 0
+  },
+  "market_close": {
+    "SPX": {"close": 7561.67, "prev_close": 7592.4, "change_pct": -0.405},
+    "SPY": {"close": 754.37, "prev_close": 757.12, "change_pct": -0.363},
+    "AMD": {"close": 534.06, "prev_close": 585.3, "change_pct": -8.75, "low": 520.01, "high": 571.14}
+  },
+  "gex_snapshot_used": {
+    "source": "yehangshe snapshot at 2026-11-13T16:45:00Z (issue-time); post-close snapshot retrieval timed out on 2026-11-14",
+    "SPX": {"gamma_flip_usd": 7518.36, "total_gex_usd": 43725658.94, "call_wall": 7570, "put_wall": 7525, "major_positive_strike": 7545},
+    "AMD": {"gamma_flip_usd": 523.6, "total_gex_usd": -5859721.72, "king_strike": 527.5}
+  },
+  "v3shadow": {"status": "final_not_read", "note": "5000alpha.top shadow3 page returned HTTP 401 / empty from this host on 2026-11-14; mid-session user screenshot at 11:58 ET showed 21 entries, 17 closed, weighted return -9.45%, win rate 35%, PF 0.44, realized -291.03 USD, total -388.39 USD with 4 still open. Those are interim, not final."}
+}
